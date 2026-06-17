@@ -19,6 +19,9 @@ modules:
 
   - type: dnf
     repos:
+      files:
+        add:
+          - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
       copr:
         - atim/starship
         - lionheartp/Hyprland
@@ -29,6 +32,7 @@ modules:
         - micro
         - starship
         - niri
+        - scroll
         - xwayland-satellite 
         - helium
         - noctalia-git
