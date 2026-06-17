@@ -46,6 +46,7 @@ modules:
       packages:
         - plasma-desktop
         - plasma-login-manager
+        - konsole
         - firefox
         - firefox-langpacks
 
