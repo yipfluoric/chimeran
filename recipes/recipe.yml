@@ -37,6 +37,10 @@ modules:
         - helium
         - noctalia-git
         - noctalia-greeter
+      
+      exclude:
+        - waybar
+        - fuzzel
 
     remove:
       packages:
