@@ -26,7 +26,6 @@ modules:
         - atim/starship
         - lionheartp/Hyprland
         - v8v88v8v88/helium
-        - wezfurlong/wezterm-nightly
         
     install:
       packages:
@@ -39,7 +38,7 @@ modules:
         - qt6ct
         - qt5ct
         - btop
-        - wezterm-nightly
+        - ueberzugpp
         - xwayland-satellite 
         - helium
         - noctalia-git
@@ -49,7 +48,6 @@ modules:
         - geistmono-nerd-fonts
       
       exclude:
-        - alacritty
         - waybar
         - fuzzel
 
@@ -71,7 +69,7 @@ modules:
       enabled:
         - greetd.service
         - nix-daemon.service
-        
+
   ### could use this, currently dont want to.
   # - type: default-flatpaks
   #   configurations:
