@@ -50,7 +50,6 @@ modules:
       
       exclude:
         - waybar
-        - fuzzel
 
     remove:
       packages:
