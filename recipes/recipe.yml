@@ -38,6 +38,7 @@ modules:
         - qt6ct
         - qt5ct
         - klassy
+        - darkly
         - btop
         - ueberzugpp
         - xwayland-satellite 
