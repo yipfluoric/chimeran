@@ -53,6 +53,9 @@ modules:
     remove:
       packages:
         - gdm
+        - gnome-session
+        - gnome-control-center
+        - gnome-color-manager
         - firefox
         - firefox-langpacks
 
