@@ -36,7 +36,6 @@ modules:
         - scroll
         - miracle-wm
         - xdg-desktop-portal-wlr
-        - vicinae
         - qt6ct
         - klassy
         - btop
@@ -54,14 +53,10 @@ modules:
     remove:
       packages:
         - gdm
-        - gnome-disk-utility
         - firefox
         - firefox-langpacks
 
   - type: systemd
-    user:
-      enabled:
-        - vicinae.service
     system:
       enabled:
         - greetd.service
