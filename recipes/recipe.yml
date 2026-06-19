@@ -6,7 +6,7 @@ name: chimeran
 description: Personal Image for Niri/Scroll & Noctalia
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/bazzite-gnome-nvidia
+base-image: ghcr.io/ublue-os/bazzite-nvidia
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -24,7 +24,8 @@ modules:
           - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
       copr:
         - atim/starship
-        - lionheartp/Hyprland
+        - avengemedia/danklinux
+        - avengemedia/dms-git
         - v8v88v8v88/helium
         
     install:
@@ -38,31 +39,41 @@ modules:
         - xdg-desktop-portal-wlr
         - qt6ct
         - klassy
-        - btop
+        - vicinae
         - ueberzugpp
         - xwayland-satellite 
         - helium
-        - noctalia-git
-        - noctalia-greeter
+        - dms
+        - dms-greeter
+        - dgop
+        - dsearch
         - papirus-icon-theme
-        - geistmono-nerd-fonts
-      
+        - geistmono-nerd-fonts 
       exclude:
         - waybar
+        - fuzzel
 
     remove:
       packages:
-        - gdm
-        - gnome-session
-        - gnome-control-center
-        - gnome-color-manager
+        - plasma-desktop
+        - plasma-login-manager
+        - plasma-systemmonitor
+        - plasma-systemsettings
+        - kde-connect
+        - gnome-disk-utility
+        - kate
+        - konsole
         - firefox
         - firefox-langpacks
 
   - type: systemd
+    user:
+      enable:
+        - dsearch
+        - vicinae
     system:
       enabled:
-        - greetd.service
+        - greetd
 
   ### could use this, currently dont want to.
   # - type: default-flatpaks
