@@ -40,13 +40,13 @@ modules:
         - ueberzugpp
         - xwayland-satellite 
         - helium
+        - vicinae
         - noctalia
         - noctalia-greeter
         - dgop
         - dsearch
         - papirus-icon-theme
         - geistmono-nerd-fonts 
-        - system76-scheduler
         - firefox
         - firefox-langpacks
 
@@ -64,6 +64,9 @@ modules:
         - konsole
         
   - type: systemd
+    user:
+      enabled:
+        - vicinae
     system:
       enabled:
         - greetd
