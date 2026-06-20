@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: chimeran-nvidia
+name: chimeran-nvidia-open
 # description will be included in the image's metadata
 description: Personal Image for Niri/Scroll & Noctalia (Legacy Nvidia)
 
