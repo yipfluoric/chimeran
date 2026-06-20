@@ -69,7 +69,6 @@ modules:
     system:
       enabled:
         - greetd
-        - system76-scheduler
 
   ### could use this, currently dont want to.
   # - type: default-flatpaks
