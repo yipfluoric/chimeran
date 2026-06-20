@@ -6,7 +6,7 @@
 
 ## Installation
 
-There are two ways to install Chimeran. One of them, is to install either Fedora Atomic, or preferably Bazzite, and then rebase. Another option is if you are already on either and want a fresh install, is to build an iso as described below.
+There are two ways to install Chimeran. One of them, is to install either Fedora Atomic, or preferably Bazzite, and then rebase. Another option, if you are already on either and want a fresh install, is to build an iso as described below.
 
 
 ## Rebasing
