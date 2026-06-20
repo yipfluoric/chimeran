@@ -45,6 +45,7 @@ modules:
         - ueberzugpp
         - xwayland-satellite 
         - helium
+        - quickshell-git
         - dms
         - dms-greeter
         - dgop
@@ -54,6 +55,10 @@ modules:
       exclude:
         - waybar
         - fuzzel
+        ### git variation has more features but noctalia-qs was somehow pulled? 
+        ### was this cause i didn't rebase or is it in a repo? destroy both right now just incase.
+        - quickshell
+        - noctalia-qs
 
     remove:
       packages:
@@ -67,7 +72,7 @@ modules:
         - konsole
         - firefox
         - firefox-langpacks
-
+        
   - type: systemd
     user:
       enable:
