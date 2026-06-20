@@ -24,6 +24,7 @@ set $term alacritty
 set $restartnoctalia sh -c 'pid=$(pgrep noctalia);kill $pid;waitpid $pid;noctalia'
 
 exec noctalia
+
 ### Output configuration
 # output "LG Display 0x0469 Unknown" {
 #     scale 1.333333 force

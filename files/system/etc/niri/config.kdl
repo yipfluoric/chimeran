@@ -20,6 +20,8 @@
 //     }
 // }
 
+spawn-at-startup "noctalia"
+
 cursor {
 	xcursor-theme "breeze_cursors"
     xcursor-size 48
