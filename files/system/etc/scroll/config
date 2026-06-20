@@ -7,9 +7,6 @@
 # Read `man 5 scroll` for a complete reference.
 
 # XDG desktop variables to set scroll as the desktop
-exec export XDG_CURRENT_DESKTOP=scroll
-exec export XDG_SESSION_TYPE=wayland
-exec export XDG_SESSION_DESKTOP=scroll
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 ### Variables

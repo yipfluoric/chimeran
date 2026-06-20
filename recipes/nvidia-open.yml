@@ -36,8 +36,6 @@ modules:
         - scroll
         - adw-gtk3-theme
         - xdg-desktop-portal-wlr
-        - qt6ct
-        - qt5ct
         - klassy
         - ueberzugpp
         - xwayland-satellite 
@@ -60,7 +58,6 @@ modules:
         - plasma-desktop
         - plasma-login-manager
         - plasma-systemmonitor
-        - plasma-systemsettings
         - kde-connect
         - gnome-disk-utility
         - kate
