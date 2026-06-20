@@ -39,6 +39,7 @@ modules:
         - adw-gtk3-theme
         - xdg-desktop-portal-wlr
         - qt6ct
+        - qt5ct
         - klassy
         - vicinae
         - ueberzugpp
