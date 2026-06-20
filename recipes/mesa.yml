@@ -1,0 +1,83 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: chimeran
+# description will be included in the image's metadata
+description: Personal Image for Niri/Scroll & Noctalia (Legacy Nvidia)
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/bazzite
+image-version: latest # latest is also supported if you want new updates ASAP
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  - type: dnf
+    repos:
+      files:
+        add:
+          - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+      copr:
+        - atim/starship
+        - lionheartp/Hyprland
+        - v8v88v8v88/helium
+        
+    install:
+      packages:
+        - greetd
+        - micro
+        - starship
+        - niri
+        - scroll
+        - adw-gtk3-theme
+        - xdg-desktop-portal-wlr
+        - qt6ct
+        - qt5ct
+        - klassy
+        - ueberzugpp
+        - xwayland-satellite 
+        - helium
+        - noctalia
+        - noctalia-greeter
+        - dgop
+        - dsearch
+        - papirus-icon-theme
+        - geistmono-nerd-fonts 
+        - system76-scheduler
+      exclude:
+        - waybar
+
+    remove:
+      packages:
+        - plasma-desktop
+        - plasma-login-manager
+        - plasma-systemmonitor
+        - plasma-systemsettings
+        - kde-connect
+        - gnome-disk-utility
+        - kate
+        - konsole
+        - firefox
+        - firefox-langpacks
+        
+  - type: systemd
+    system:
+      enabled:
+        - greetd
+        - system76-scheduler
+
+  ### could use this, currently dont want to.
+  # - type: default-flatpaks
+  #   configurations:
+  #     - notify: true
+  #       install: # system flatpaks we want all users to have and not remove
+  #         - org.gnome.Loupe
+  #         - com.github.weclaw1.ImageRoll
+  #     - scope: user # Also add Flathub user repo, but no user packages
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully

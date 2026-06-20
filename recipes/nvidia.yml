@@ -1,9 +1,9 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: chimeran
+name: chimeran-nvidia
 # description will be included in the image's metadata
-description: Personal Image for Niri/Scroll & Noctalia
+description: Personal Image for Niri/Scroll & Noctalia (Legacy Nvidia)
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/bazzite-nvidia
@@ -39,7 +39,6 @@ modules:
         - qt6ct
         - qt5ct
         - klassy
-        - vicinae
         - ueberzugpp
         - xwayland-satellite 
         - helium
@@ -52,7 +51,6 @@ modules:
         - system76-scheduler
       exclude:
         - waybar
-        - fuzzel
 
     remove:
       packages:

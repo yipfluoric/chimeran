@@ -1,0 +1,243 @@
+// input {
+//     keyboard {
+//         xkb {
+//         }
+
+//         numlock
+//     }
+
+
+//     touchpad {
+//         tap
+//         natural-scroll
+//         accel-profile "flat"
+//         scroll-method "two-finger"
+//         disabled-on-external-mouse
+//     }
+
+//     mouse {
+//         accel-profile "flat"
+//     }
+// }
+
+cursor {
+    xcursor-size 48
+}
+
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+}
+layout {
+    gaps 8
+    tab-indicator {
+        on
+        hide-when-single-tab
+        place-within-column
+        gap 4
+        width 8
+        length total-proportion=0.85
+        position "left"
+        gaps-between-tabs 4
+        corner-radius 0
+    }
+    center-focused-column "on-overflow"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        on
+        width 2
+    }
+    background-color "transparent"
+
+    shadow {
+       // on
+    }
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+window-rule {
+    match app-id="Alacritty"
+    open-floating true
+    default-column-width { fixed 960; }
+    default-window-height { fixed 540;}
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="dev.noctalia.Noctalia.Settings"
+    open-floating true
+    default-column-width { fixed 860; }
+    default-window-height { fixed 640; }
+}
+
+// window-rule {
+//   match is-floating=true
+//   background-effect {
+//    xray false
+//  }
+// }
+
+window-rule {
+  geometry-corner-radius 16
+  clip-to-geometry true
+  draw-border-with-background false
+  // background-effect {
+  //  // xray false
+  //  blur true
+  // }
+}
+
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+layer-rule {
+   match namespace="^noctalia-(bar-[^\"]+|bar-default|notification|dock|panel|attached-panel|osd)$"
+   background-effect {
+    // xray false
+    // blur false
+  }
+}
+
+blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screencast"
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+binds {
+    Mod+Return hotkey-overlay-title="Terminal: Alacritty" { spawn "alacritty"; }
+    Alt+R { spawn-sh "pid=$(pgrep noctalia);kill $pid;waitpid $pid;noctalia"; }
+    
+    // Core Noctalia binds
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Period { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+    Ctrl+R { spawn-sh "noctalia msg scripted-widget screen_recorder focused start"; }
+    Mod+R { spawn-sh "noctalia msg scripted-widget screen_recorder focused stop"; }
+
+    // Audio & Brightness
+    XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up"; }
+    XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute { spawn "noctalia" "msg" "volume-mute"; }
+    XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
+
+    Mod+Backspace repeat=false { close-window; }
+
+    Mod+A { focus-column-left; }
+    Mod+S  { focus-window-down; }
+    Mod+W    { focus-window-up; }
+    Mod+D { focus-column-right; }
+
+    Mod+Ctrl+A  { move-column-left; }
+    Mod+Ctrl+S  { move-window-down; }
+    Mod+Ctrl+W    { move-window-up; }
+    Mod+Ctrl+D { move-column-right; }
+
+    Alt+A     { focus-monitor-left; }
+    Alt+S     { focus-monitor-down; }
+    Alt+W    { focus-monitor-up; }
+    Alt+D     { focus-monitor-right; }
+
+    Alt+Shift+A     { move-column-to-monitor-left; }
+    Alt+Shift+S     { move-column-to-monitor-down; }
+    Alt+Shift+W     { move-column-to-monitor-up; }
+    Alt+Shift+D     { move-column-to-monitor-right; }
+
+    Mod+Page_Down     { focus-workspace-down; }
+    Mod+Page_Up      { focus-workspace-up; }
+    Mod+Ctrl+Page_Down  { move-workspace-down; }
+    Mod+Ctrl+Page_Up { move-workspace-up; }
+    Mod+Shift+Page_Down { move-column-to-workspace-down; }
+    Mod+Shift+Page_Up{ move-column-to-workspace-up; }
+
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    Mod+Shift+Q  { consume-or-expel-window-left; }
+    Mod+Shift+E { consume-or-expel-window-right; }
+
+
+    Mod+G { switch-preset-column-width; }
+    Mod+Shift+G { switch-preset-window-height; }
+    Mod+Ctrl+G { reset-window-height; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
+    Mod+M { maximize-window-to-edges; }
+
+
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    Mod+C { center-column; }
+
+    Mod+Ctrl+C { center-visible-columns; }
+    Mod+Q { set-column-width "-10%"; }
+    Mod+E { set-column-width "+10%"; }
+
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+B { toggle-column-tabbed-display; }
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    Ctrl+Alt+Delete { quit; }
+    Mod+Shift+P { power-off-monitors; }
+
+}
