@@ -10,33 +10,33 @@ modules:
         - v8v88v8v88/helium
       
     install:
-    packages:
-      - greetd
-      - micro
-      - starship
-      - niri
-      - nautilus
-      - loupe
-      - celluloid
-      - scroll
-      - adw-gtk3-theme
-      - xdg-desktop-portal-wlr
-      - ueberzugpp
-      - xwayland-satellite 
-      - helium
-      - walker
-      - elephant
-      - noctalia
-      - noctalia-greeter
-      - papirus-icon-theme
-      - geistmono-nerd-fonts 
-      - firefox
-      - firefox-langpacks
-      - ScopeBuddy
-      - gamescope
-      - ananicy-cpp
-      - scx-scheds-nightly
-      - scx-tools-nightly
+      packages:
+        - greetd
+        - micro
+        - starship
+        - niri
+        - nautilus
+        - loupe
+        - celluloid
+        - scroll
+        - adw-gtk3-theme
+        - xdg-desktop-portal-wlr
+        - ueberzugpp
+        - xwayland-satellite 
+        - helium
+        - walker
+        - elephant
+        - noctalia
+        - noctalia-greeter
+        - papirus-icon-theme
+        - geistmono-nerd-fonts 
+        - firefox
+        - firefox-langpacks
+        - ScopeBuddy
+        - gamescope
+        - ananicy-cpp
+        - scx-scheds-nightly
+        - scx-tools-nightly
 
-    exclude:
-      - waybar
+      exclude:
+        - waybar
