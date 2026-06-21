@@ -12,11 +12,6 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
   - type: dnf
     repos:
       files:
@@ -71,13 +66,9 @@ modules:
       enabled:
         - greetd
 
-  ### could use this, currently dont want to.
-  # - type: default-flatpaks
-  #   configurations:
-  #     - notify: true
-  #       install: # system flatpaks we want all users to have and not remove
-  #         - org.gnome.Loupe
-  #         - com.github.weclaw1.ImageRoll
-  #     - scope: user # Also add Flathub user repo, but no user packages
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
