@@ -17,7 +17,6 @@ modules:
     system:
       enabled:
         - greetd
-        - scx
 
   - type: files
     files:
