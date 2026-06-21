@@ -14,8 +14,6 @@ image-version: latest # latest is also supported if you want new updates ASAP
 modules:
   - from-file: ./common/dnf.yml
   - from-file: ./common/flatpak.yml
-  - from-file: ./common/services.yml
-  - type: signing
   - type: systemd
     system:
       enabled:
@@ -26,7 +24,8 @@ modules:
       enabled:
         - elephant
 
-    type: files
+  - type: files
     files:
       - source: system
         destination: /
+  - type: signing
