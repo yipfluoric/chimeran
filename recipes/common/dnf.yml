@@ -1,13 +1,13 @@
 modules:
   - type: dnf
     repos:
-      files:
-        add:
-          - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
       copr:
         - atim/starship
         - lionheartp/Hyprland
         - v8v88v8v88/helium
+      files:
+        add:
+          - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
       
     install:
       packages:
@@ -26,8 +26,6 @@ modules:
         - helium
         - walker
         - elephant
-        - noctalia
-        - noctalia-greeter
         - papirus-icon-theme
         - geistmono-nerd-fonts 
         - firefox
@@ -36,6 +34,16 @@ modules:
         - gamescope
         - scx-scheds-nightly
         - scx-tools-nightly
-
+        ### because bluebuild doesnt want to pull from other repos for noctalia :<
+        - dejavu-sans-fonts
+        - libqalculate
+        - jemalloc
+        - wlroots
+        - cage
+        - repo: copr:copr.fedorainfracloud.org:lionheartp:Hyprland
+          packages:
+            - noctalia-git
+            - noctalia-greeter
+          
       exclude:
         - waybar
