@@ -28,7 +28,6 @@ jobs:
         recipe:
           - mesa.yml
           - nvidia.yml
-          - nvidia-open.yml
           
     steps:
       # the build is fully handled by the reusable github action

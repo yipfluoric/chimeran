@@ -6,19 +6,17 @@ name: chimeran
 description: Fedora-based Image for Niri/Scroll & Noctalia (Legacy Nvidia)
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/base
+base-image: ghcr.io/ublue-os/base-main
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
   - from-file: ./common/dnf.yml
-  - from-file: ./common/flatpak.yml
   - type: systemd
     system:
       enabled:
         - greetd
-        - ananicy-cpp
         - scx
     user:
       enabled:
