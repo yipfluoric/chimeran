@@ -32,16 +32,12 @@ modules:
         - geistmono-nerd-fonts
         - firefox
         - firefox-langpacks
-        - ScopeBuddy
-        - gamescope
-        - steam
         - scx-scheds-nightly
         - scx-tools-nightly
         - tuned
         - tuned-ppd
         - fastfetch
         - hyfetch
-        - faugus-launcher
 
         ### Noctalia dependencies, because it install purely from the lionheartP repo and not much else
         - dejavu-sans-fonts
