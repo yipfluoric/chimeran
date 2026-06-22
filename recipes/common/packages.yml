@@ -5,6 +5,8 @@ modules:
         - atim/starship
         - lionheartp/Hyprland
         - v8v88v8v88/helium
+        - faugus/faugus-launcher
+
       files:
         add:
           - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
@@ -38,6 +40,7 @@ modules:
         - tuned-ppd
         - fastfetch
         - hyfetch
+        - faugus-launcher
 
         ### Noctalia dependencies, because it install purely from the lionheartP repo and not much else
         - dejavu-sans-fonts
